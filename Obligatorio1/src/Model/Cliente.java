@@ -9,27 +9,9 @@ package Model;
  *
  * @author gonzalo
  */
-public class Cliente {
-    private String Cedula;
-    private String NombreCompleto;
+public class Cliente extends Usuario {
     private String Email;
     private Puesto Puesto;
-    
-    public String getCedula() {
-        return Cedula;
-    }
-
-    public void setCedula(String Cedula) {
-        this.Cedula = Cedula;
-    }
-
-    public String getNombreCompleto() {
-        return NombreCompleto;
-    }
-
-    public void setNombreCompleto(String NombreCompleto) {
-        this.NombreCompleto = NombreCompleto;
-    }
     
     public String getEmail() {
         return Email;
@@ -47,17 +29,10 @@ public class Cliente {
         this.Puesto = Puesto;
     }
     
-    public Cliente(String Cedula, String NombreCompleto, String Email, Puesto Puesto) {
-        this.Cedula = Cedula;
-        this.NombreCompleto = NombreCompleto;
+    public Cliente(String Cedula, String Password, String NombreCompleto, String Email, Puesto Puesto) {
+        super(Cedula, Password, NombreCompleto);
+        
         this.Email = Email;
         this.Puesto = Puesto;
-    }
-    
-    public Cliente() {
-        this.Cedula = "";
-        this.NombreCompleto = "";
-        this.Email = "";
-        this.Puesto = null;
     }
 }

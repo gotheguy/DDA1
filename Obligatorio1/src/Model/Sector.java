@@ -5,7 +5,7 @@
  */
 package Model;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  *
@@ -14,7 +14,7 @@ import java.util.List;
 public class Sector {
     private String Nombre;
     private int CantPuestos;
-    private List<Trabajador> Trabajadores;
+    private ArrayList<Trabajador> Trabajadores = new ArrayList();
     private Puesto Puesto;
     
     public String getNombre() {
@@ -33,11 +33,11 @@ public class Sector {
         this.CantPuestos = CantPuestos;
     }
     
-    public List<Trabajador> getTrabajadores() {
+    public ArrayList<Trabajador> getTrabajadores() {
         return Trabajadores;
     }
 
-    public void setTrabajadores(List<Trabajador> Trabajadores) {
+    public void setTrabajadores(ArrayList<Trabajador> Trabajadores) {
         this.Trabajadores = Trabajadores;
     }
     
@@ -49,17 +49,10 @@ public class Sector {
         this.Puesto = Puesto;
     }
     
-    public Sector(String Nombre, int CantPuestos, List<Trabajador> Trabajadores, Puesto Puesto) {
+    public Sector(String Nombre, int CantPuestos, ArrayList<Trabajador> Trabajadores, Puesto Puesto) {
         this.Nombre = Nombre;
         this.CantPuestos = CantPuestos;
         this.Trabajadores = Trabajadores;
         this.Puesto = Puesto;
-    }
-    
-    public Sector() {
-        this.Nombre = "";
-        this.CantPuestos = 0;
-        this.Trabajadores = null;
-        this.Puesto = null;
     }
 }

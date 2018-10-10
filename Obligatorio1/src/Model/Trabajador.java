@@ -9,36 +9,9 @@ package Model;
  *
  * @author gonzalo
  */
-public class Trabajador {
-    private String Cedula;
-    private String Password;
-    private String NombreCompleto;
+public class Trabajador extends Usuario {
     private Puesto Puesto;
     private Sector Sector;
-    
-    public String getCedula() {
-        return Cedula;
-    }
-
-    public void setCedula(String Cedula) {
-        this.Cedula = Cedula;
-    }
-    
-    public String getPassword() {
-        return Password;
-    }
-
-    public void setPassword(String Password) {
-        this.Password = Password;
-    }
-    
-    public String getNombreCompleto() {
-        return NombreCompleto;
-    }
-
-    public void setNombreCompleto(String NombreCompleto) {
-        this.NombreCompleto = NombreCompleto;
-    }
     
     public Puesto getPuesto() {
         return Puesto;
@@ -56,19 +29,10 @@ public class Trabajador {
         this.Sector = Sector;
     }
     
-    public Trabajador(String Cedula, String Password, String NombreCompleto, Puesto Puesto, Sector Sector) {
-        this.Cedula = Cedula;
-        this.Password = Password;
-        this.NombreCompleto = NombreCompleto;
+    public Trabajador(String Cedula, String Password, String NombreCompleto, Puesto Puesto, Sector Sector) { 
+        super(Cedula, Password, NombreCompleto);
+        
         this.Puesto = Puesto;
         this.Sector = Sector;
-    }
-    
-    public Trabajador() {
-        this.Cedula = "";
-        this.Password = "";
-        this.NombreCompleto = "";
-        this.Puesto = null;
-        this.Sector = null;
     }
 }

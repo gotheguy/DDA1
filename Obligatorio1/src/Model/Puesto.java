@@ -10,21 +10,13 @@ package Model;
  * @author gonzalo
  */
 public class Puesto {
-    private int NumeroAtencion;
+    private static int NumeroAtencion;
     
     public int getNumeroAtencion() {
         return NumeroAtencion;
     }
-
-    public void setNumeroAtencion(int NumeroAtencion) {
-        this.NumeroAtencion = NumeroAtencion;
-    }
-    
-    public Puesto(int NumeroAtencion) {
-        this.NumeroAtencion = NumeroAtencion;
-    }
     
     public Puesto() {
-        this.NumeroAtencion = 0;
+        this.NumeroAtencion++;
     }
 }

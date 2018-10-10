@@ -5,7 +5,7 @@
  */
 package Model;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  *
@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class Area {
     private String Nombre;
-    private List<Sector> Sectores;
+    private ArrayList<Sector> Sectores = new ArrayList();
     
     public String getNombre() {
         return Nombre;
@@ -23,22 +23,17 @@ public class Area {
         this.Nombre = Nombre;
     }
     
-    public List<Sector> getSectores() {
+    public ArrayList<Sector> getSectores() {
         return Sectores;
     }
 
-    public void setSectores(List<Sector> Sectores) {
+    public void setSectores(ArrayList<Sector> Sectores) {
         this.Sectores = Sectores;
     }
     
-    public Area(String Nombre, List<Sector> Sectores) {
+    public Area(String Nombre, ArrayList<Sector> Sectores) {
         this.Nombre = Nombre;
         this.Sectores = Sectores;
-    }
-    
-    public Area() {
-        this.Sectores = null;
-        this.Nombre = "";
     }
 }
 
