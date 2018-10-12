@@ -5,6 +5,8 @@
  */
 package Model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author gonzalo
@@ -36,6 +38,9 @@ public abstract class Usuario {
 
     public void setNombreCompleto(String NombreCompleto) {
         this.NombreCompleto = NombreCompleto;
+    }
+    
+    public void agregarSector(Sector Sector) {
     }
     
     public Usuario(String Cedula, String Password, String NombreCompleto) {

@@ -15,6 +15,9 @@ import java.util.ArrayList;
 public class ControladorSistema {
      
     private ControladorUsuario controladorUsuario = new ControladorUsuario();
+    private ControladorArea controladorArea = new ControladorArea();
+    private ControladorSector controladorSector = new ControladorSector();
+    private ControladorPuesto controladorPuesto = new ControladorPuesto();
     
     private static ControladorSistema instancia;
     
@@ -25,6 +28,11 @@ public class ControladorSistema {
         return instancia;
     }
     
+    private ControladorSistema() {
+        this.controladorArea.cargarDatos();
+   //     this.controladorSector.cargarDatos();
+    }
+    
     public Usuario getLogueado() {
         return this.controladorUsuario.getLogueado();
     }
@@ -32,16 +40,24 @@ public class ControladorSistema {
     public void setLogueado(Usuario usuario) {
         this.controladorUsuario.setLogueado(usuario);
     }
- 
-    private ControladorSistema() {
-        controladorUsuario.cargarUsuarios();
-    }
      
     public Usuario login(String cedula, String password) {
         return this.controladorUsuario.login(cedula, password);
     }
     
-    public void getAreas() {
-        this.controladorUsuario.getAreas();
+    public ArrayList<Sector> getListaSectores() {
+        return this.controladorSector.getListaSectores();
+    }
+
+    public ArrayList<Puesto> getListaPuestos() {
+        return this.controladorPuesto.getListaPuestos();
+    }
+    
+    public ArrayList<Usuario> getListaUsuarios() {
+        return this.controladorUsuario.getListaUsuarios();
+    }
+
+    public ArrayList<Area> getListaAreas() {
+        return this.controladorArea.getListaAreas();
     }
 }

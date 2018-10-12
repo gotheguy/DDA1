@@ -14,8 +14,8 @@ import java.util.ArrayList;
 public class Sector {
     private String Nombre;
     private int CantPuestos;
-    private ArrayList<Trabajador> Trabajadores = new ArrayList();
-    private Puesto Puesto;
+    private ArrayList<Usuario> Trabajadores = new ArrayList();
+    private ArrayList<Puesto> Puestos = new ArrayList();
     
     public String getNombre() {
         return Nombre;
@@ -33,26 +33,38 @@ public class Sector {
         this.CantPuestos = CantPuestos;
     }
     
-    public ArrayList<Trabajador> getTrabajadores() {
+    public ArrayList<Usuario> getTrabajadores() {
         return Trabajadores;
     }
 
-    public void setTrabajadores(ArrayList<Trabajador> Trabajadores) {
+    public void setTrabajadores(ArrayList<Usuario> Trabajadores) {
         this.Trabajadores = Trabajadores;
     }
     
-    public Puesto getPuesto() {
-        return Puesto;
+    public ArrayList<Puesto> getPuestos() {
+        return Puestos;
     }
 
-    public void setPuesto(Puesto Puesto) {
-        this.Puesto = Puesto;
+    public void setPuestos(ArrayList<Puesto> Puestos) {
+        this.Puestos = Puestos;
     }
     
-    public Sector(String Nombre, int CantPuestos, ArrayList<Trabajador> Trabajadores, Puesto Puesto) {
+    public void agregarTrabajadores(Usuario Usuario) {
+        this.Trabajadores.add(Usuario);
+    }    
+    
+    public void agregarPuestos(Puesto Puesto) {
+        this.Puestos.add(Puesto);
+    }  
+    
+    public Sector() {
+        
+    }
+    
+    public Sector(String Nombre, int CantPuestos, ArrayList<Usuario> Trabajadores, ArrayList<Puesto> Puestos) {
         this.Nombre = Nombre;
         this.CantPuestos = CantPuestos;
         this.Trabajadores = Trabajadores;
-        this.Puesto = Puesto;
+        this.Puestos = Puestos;
     }
 }

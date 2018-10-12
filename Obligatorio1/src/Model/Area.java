@@ -31,10 +31,17 @@ public class Area {
         this.Sectores = Sectores;
     }
     
+    public void agregarSectores(String Nombre, int CantPuestos, ArrayList<Usuario> Trabajadores, ArrayList<Puesto> Puestos) {
+        Sector s = new Sector(Nombre,CantPuestos,Trabajadores,Puestos);
+        if (!this.Sectores.contains(s)) {
+            this.Sectores.add(s);    
+        }
+    }
+    
     public Area(String Nombre, ArrayList<Sector> Sectores) {
         this.Nombre = Nombre;
         this.Sectores = Sectores;
-    }
+    }    
 }
 
 

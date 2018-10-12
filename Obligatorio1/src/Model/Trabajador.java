@@ -5,6 +5,8 @@
  */
 package Model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author gonzalo
@@ -27,6 +29,13 @@ public class Trabajador extends Usuario {
 
     public void setSector(Sector Sector) {
         this.Sector = Sector;
+    }
+    
+    @Override
+    public void agregarSector(Sector s) {
+        if (!this.Sector.equals(s)) {
+            this.Sector = s;   
+        }
     }
     
     public Trabajador(String Cedula, String Password, String NombreCompleto, Puesto Puesto, Sector Sector) { 

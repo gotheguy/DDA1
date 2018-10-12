@@ -22,7 +22,7 @@ public class ControladorUsuario {
     
     
     public void ControladorUsuario() {
-        cargarUsuarios();
+        //cargarUsuarios();
     }
     
     public Usuario login(String cedula, String password) {
@@ -43,30 +43,28 @@ public class ControladorUsuario {
         this.logueado = usuario;
     }
     
-    public void cargarUsuarios() {
-        Usuario u1;
-        
-        Puesto p1 = new Puesto();
-        
-        Sector s1 = new Sector("G1",1,null,p1);
-        listaSectores.add(s1);
-        
-        u1 = new Trabajador("45425424","23r2f23f","Rodolfo Rodriguez",p1,s1);
-        listaUsuarios.add(u1);
-        
-        Area a1 = new Area("AT",listaSectores);
-        Area a2 = new Area("AF",listaSectores);
-        Area a3 = new Area("AG",listaSectores);
-                        
-        listaAreas.add(a1);
-        listaAreas.add(a2);
-        listaAreas.add(a3);
-    }
+    public ArrayList<Usuario> getListaUsuarios() {
+        return this.listaUsuarios;
+    }    
     
-    public void getAreas() {
-        for(int i = 0; i < listaAreas.size(); i++) {
-            System.out.println(listaAreas.get(i).getNombre());
-        }
-        
+    public void cargarUsuarios() {
+//        Usuario u1;
+//        Puesto p1 = new Puesto();
+//        
+//        Sector s1 = new Sector("G1",1,null,p1);
+//        listaSectores.add(s1);
+//        
+//        u1 = new Trabajador("45425424","23r2f23f","Rodolfo Rodriguez",p1,s1);
+//        listaUsuarios.add(u1);
+//        
+//        s1.setTrabajadores(listaUsuarios);
+//        
+//        Area a1 = new Area("AT",listaSectores);
+//        Area a2 = new Area("AF",listaSectores);
+//        Area a3 = new Area("AG",listaSectores);
+//                        
+//        listaAreas.add(a1);
+//        listaAreas.add(a2);
+//        listaAreas.add(a3);
     }
 }

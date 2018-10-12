@@ -55,7 +55,7 @@ public class VistaLogin extends javax.swing.JPanel implements java.beans.Customi
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                ControladorSistema.getInstancia().getAreas();
+                ControladorSistema.getInstancia()
             }
         });
     }

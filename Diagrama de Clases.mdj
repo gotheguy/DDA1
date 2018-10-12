@@ -1647,6 +1647,23 @@
 											"width": 175,
 											"height": 13,
 											"underline": true,
+											"text": "-NumeroPuesto: int",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAFmYPGarTtnUPg=",
+											"_parent": {
+												"$ref": "AAAAAAFmS+J/llBqHmQ="
+											},
+											"model": {
+												"$ref": "AAAAAAFmYPGaXDteYog="
+											},
+											"font": "Arial;13;0",
+											"left": 613,
+											"top": 565,
+											"width": 175,
+											"height": 13,
 											"text": "-NumeroAtencion: int",
 											"horizontalAlignment": 0
 										}
@@ -1655,7 +1672,7 @@
 									"left": 608,
 									"top": 545,
 									"width": 185,
-									"height": 23
+									"height": 38
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -1678,7 +1695,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 613,
-											"top": 573,
+											"top": 588,
 											"width": 175,
 											"height": 13,
 											"text": "+Puesto()",
@@ -1687,7 +1704,7 @@
 									],
 									"font": "Arial;13;0",
 									"left": 608,
-									"top": 568,
+									"top": 583,
 									"width": 185,
 									"height": 23
 								},
@@ -3043,6 +3060,7 @@
 								"reference": {
 									"$ref": "AAAAAAFmS8Ql2UnAaQk="
 								},
+								"aggregation": "composite",
 								"multiplicity": "*"
 							}
 						}
@@ -3569,9 +3587,19 @@
 							"_parent": {
 								"$ref": "AAAAAAFmS+J/k1BizIg="
 							},
-							"name": "NumeroAtencion",
+							"name": "NumeroPuesto",
 							"visibility": "private",
 							"isStatic": true,
+							"type": "int"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAFmYPGaXDteYog=",
+							"_parent": {
+								"$ref": "AAAAAAFmS+J/k1BizIg="
+							},
+							"name": "NumeroAtencion",
+							"visibility": "private",
 							"type": "int"
 						}
 					],
