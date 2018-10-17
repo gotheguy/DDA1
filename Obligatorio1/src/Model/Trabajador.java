@@ -5,8 +5,6 @@
  */
 package Model;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author gonzalo
@@ -15,31 +13,28 @@ public class Trabajador extends Usuario {
     private Puesto Puesto;
     private Sector Sector;
     
+    @Override
     public Puesto getPuesto() {
         return Puesto;
     }
 
+    @Override
     public void setPuesto(Puesto Puesto) {
         this.Puesto = Puesto;
     }
     
+    @Override
     public Sector getSector() {
         return Sector;
     }
 
+    @Override
     public void setSector(Sector Sector) {
         this.Sector = Sector;
     }
     
-    @Override
-    public void agregarSector(Sector s) {
-        if (!this.Sector.equals(s)) {
-            this.Sector = s;   
-        }
-    }
-    
-    public Trabajador(String Cedula, String Password, String NombreCompleto, Puesto Puesto, Sector Sector) { 
-        super(Cedula, Password, NombreCompleto);
+    public Trabajador(String Cedula, String Password, String NombreCompleto, Rol Rol, Puesto Puesto, Sector Sector) { 
+        super(Cedula, Password, NombreCompleto, Rol.Trabajador);
         
         this.Puesto = Puesto;
         this.Sector = Sector;

@@ -3,15 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controller;
-
-import Model.Area;
-import java.util.ArrayList;
+package Model;
 
 /**
  *
  * @author gonzalo
  */
-public interface IControladorSistema {
-    public ArrayList<Area> getListaAreas();
+public enum Rol {
+    Trabajador,
+    Cliente
 }

@@ -5,8 +5,6 @@
  */
 package Model;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author gonzalo
@@ -15,6 +13,10 @@ public abstract class Usuario {
     protected String Cedula;
     protected String Password;
     protected String NombreCompleto;
+    protected Rol Rol;
+    protected String Email;
+    protected Puesto Puesto;
+    protected Sector Sector;
     
     public String getCedula() {
         return Cedula;
@@ -40,12 +42,42 @@ public abstract class Usuario {
         this.NombreCompleto = NombreCompleto;
     }
     
-    public void agregarSector(Sector Sector) {
+    public Rol getRol() {
+        return Rol;
+    }
+
+    public void setRol(Rol Rol) {
+        this.Rol = Rol;
     }
     
-    public Usuario(String Cedula, String Password, String NombreCompleto) {
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String Email) {
+        this.Email = Email;
+    }
+    
+    public Puesto getPuesto() {
+        return Puesto;
+    }
+
+    public void setPuesto(Puesto Puesto) {
+        this.Puesto = Puesto;
+    }
+    
+    public Sector getSector() {
+        return Sector;
+    }
+
+    public void setSector(Sector Sector) {
+        this.Sector = Sector;
+    }
+    
+    public Usuario(String Cedula, String Password, String NombreCompleto, Rol Rol) {
         this.Cedula = Cedula;
         this.Password = Password;
         this.NombreCompleto = NombreCompleto;
+        this.Rol = Rol;
     }
 }

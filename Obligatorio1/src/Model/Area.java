@@ -31,8 +31,7 @@ public class Area {
         this.Sectores = Sectores;
     }
     
-    public void agregarSectores(String Nombre, int CantPuestos, ArrayList<Usuario> Trabajadores, ArrayList<Puesto> Puestos) {
-        Sector s = new Sector(Nombre,CantPuestos,Trabajadores,Puestos);
+    public void agregar(Sector s) {
         if (!this.Sectores.contains(s)) {
             this.Sectores.add(s);    
         }

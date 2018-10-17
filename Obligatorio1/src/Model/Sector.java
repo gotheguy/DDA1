@@ -57,9 +57,19 @@ public class Sector {
         this.Puestos.add(Puesto);
     }  
     
-    public Sector() {
+    public String[] getPuestosDisponibles(Sector s, Usuario u) {
+        String[] array = new String[this.Puestos.size()];
+        int i = 0;
+        for (Puesto p : this.Puestos) {
+            if(p.getTrabajador() == null) {
+                array[i] = String.valueOf(p.getNumeroPuesto());
+                i++;            
+            }
+        }
+        return array;
+    } 
         
-    }
+    public Sector() { }
     
     public Sector(String Nombre, int CantPuestos, ArrayList<Usuario> Trabajadores, ArrayList<Puesto> Puestos) {
         this.Nombre = Nombre;

@@ -10,23 +10,45 @@ package Model;
  * @author gonzalo
  */
 public class Puesto {
-    private static int NumeroPuesto;
+    private static int NumeroPuesto = 1;
+    private int NumeroPuestoID;
     private int NumeroAtencion;
+    private Usuario Trabajador;
     
     public int getNumeroPuesto() {
-        return NumeroPuesto;
+        return NumeroPuestoID;
+    }
+    
+    public void setNumeroPuesto(int NumeroPuestoID) {
+        this.NumeroPuestoID = NumeroPuestoID;
     }
     
     public int getNumeroAtencion() {
         return NumeroAtencion;
     }
     
-    public void setNumeroPuesto(int NumeroAtencion) {
+    public void setNumeroAtencion(int NumeroAtencion) {
         this.NumeroAtencion = NumeroAtencion;
     }
     
+    public Usuario getTrabajador() {
+        return Trabajador;
+    }
+
+    public void setTrabajador(Usuario Trabajador) {
+        this.Trabajador = Trabajador;
+    }
+    
+    public Puesto() { }
+    
     public Puesto(int NumeroAtencion) {
-        this.NumeroPuesto++;
+        this.NumeroPuestoID = NumeroPuesto++;
         this.NumeroAtencion = NumeroAtencion;
+    }
+    
+    public Puesto(int NumeroAtencion, Usuario Trabajador) {
+        this.NumeroPuestoID = NumeroPuesto++;
+        this.NumeroAtencion = NumeroAtencion;
+        this.Trabajador = Trabajador;
     }
 }
