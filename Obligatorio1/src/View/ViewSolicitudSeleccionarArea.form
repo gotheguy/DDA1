@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
-  <NonVisualComponents>
-    <Component class="java.awt.Choice" name="choice1">
-    </Component>
-  </NonVisualComponents>
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -28,55 +24,54 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="151" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="147" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="lstPuestos" alignment="0" max="32767" attributes="0"/>
-                      <Component id="lblPuestosDisponibles" alignment="0" max="32767" attributes="0"/>
-                      <Component id="btnSeleccionarPuesto" min="-2" pref="97" max="-2" attributes="0"/>
+                  <Component id="lblTitulo" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="lstAreas" max="32767" attributes="0"/>
+                      <Component id="lblArea" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnSeleccionar" alignment="0" pref="100" max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="89" max="32767" attributes="0"/>
+              <EmptySpace pref="153" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="lblPuestosDisponibles" min="-2" max="-2" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="lstPuestos" min="-2" pref="162" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-              <Component id="btnSeleccionarPuesto" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+              <Component id="lblTitulo" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="lblArea" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="lstAreas" min="-2" pref="168" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+              <Component id="btnSeleccionar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="23" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="lblPuestosDisponibles">
+    <Component class="java.awt.List" name="lstAreas">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblArea">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Puestos disponibles:"/>
+        <Property name="text" type="java.lang.String" value="Areas: "/>
       </Properties>
     </Component>
-    <Component class="java.awt.List" name="lstPuestos">
-    </Component>
-    <Component class="javax.swing.JButton" name="btnSeleccionarPuesto">
+    <Component class="javax.swing.JButton" name="btnSeleccionar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Seleccionar"/>
-        <Property name="autoscrolls" type="boolean" value="true"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSeleccionarPuestoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSeleccionarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="lblTitulo">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Seleccionar un Puesto de Trabajo"/>
+        <Property name="text" type="java.lang.String" value="Seleccionar un &#xc1;rea"/>
       </Properties>
     </Component>
   </SubComponents>

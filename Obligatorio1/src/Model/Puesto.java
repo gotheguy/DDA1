@@ -5,6 +5,8 @@
  */
 package Model;
 
+import java.util.Date;
+
 /**
  *
  * @author gonzalo
@@ -12,7 +14,10 @@ package Model;
 public class Puesto {
     private static int NumeroPuesto = 1;
     private int NumeroPuestoID;
-    private int NumeroAtencion;
+    private int NumeroAtencion = 0;
+    private int CantNumerosAsignados = 0;
+    private int CantNumerosDerivados = 0;
+    private Date TiempoPromedio;
     private Usuario Trabajador;
     
     public int getNumeroPuesto() {
@@ -31,6 +36,26 @@ public class Puesto {
         this.NumeroAtencion = NumeroAtencion;
     }
     
+    public int getCantNumerosAsignados() {
+        return CantNumerosAsignados;
+    }
+    
+    public void setCantNumerosAsignados() {
+        this.CantNumerosAsignados++;
+    }
+    
+    public int getCantNumerosDerivados() {
+        return CantNumerosDerivados;
+    }
+    
+    public void setCantNumerosDerivados() {
+        this.CantNumerosDerivados++;
+    }
+    
+    public int getTiempoPromedio() {
+        return CantNumerosDerivados;
+    }
+    
     public Usuario getTrabajador() {
         return Trabajador;
     }
@@ -43,12 +68,10 @@ public class Puesto {
     
     public Puesto(int NumeroAtencion) {
         this.NumeroPuestoID = NumeroPuesto++;
-        this.NumeroAtencion = NumeroAtencion;
     }
     
-    public Puesto(int NumeroAtencion, Usuario Trabajador) {
+    public Puesto(Usuario Trabajador) {
         this.NumeroPuestoID = NumeroPuesto++;
-        this.NumeroAtencion = NumeroAtencion;
         this.Trabajador = Trabajador;
     }
 }

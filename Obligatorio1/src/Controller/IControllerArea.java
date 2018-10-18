@@ -13,8 +13,7 @@ import java.util.ArrayList;
  * @author gonzalo
  */
 public interface IControllerArea {
-
-    public ArrayList<Area> getListaAreas();
+    public String[] getListaAreas();
     
     public void agregarListaAreas(Area Area);
     
@@ -26,5 +25,9 @@ public interface IControllerArea {
     
     public void agregarListaPuestos(Puesto Puesto);
     
-    //public String[] getPuestosDisponibles();
+    public String[] getListaPuestosDisponibles(Usuario u);
+    
+    public String getAreaPorSector(String NombreSector);
+    
+    public String[] getSectoresPorArea(String NombreArea);
 }

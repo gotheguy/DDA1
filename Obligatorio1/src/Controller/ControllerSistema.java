@@ -7,8 +7,6 @@ package Controller;
 
 import Model.*;
 import java.util.ArrayList;
-import java.util.Observable;
-import java.util.Observer;
 
 /**
  *
@@ -16,8 +14,8 @@ import java.util.Observer;
  */
 public class ControllerSistema {
      
-    private ControllerUsuario controllerUsuario = new ControllerUsuario();
-    private ControllerArea controllerArea = new ControllerArea();
+    private final ControllerUsuario controllerUsuario = new ControllerUsuario();
+    private final ControllerArea controllerArea = new ControllerArea();
     
     private static ControllerSistema instancia;
     
@@ -40,7 +38,7 @@ public class ControllerSistema {
         return this.controllerUsuario.login(cedula, password);
     }
   
-    public ArrayList<Area> getListaAreas() {
+    public String[] getListaAreas() {
         return this.controllerArea.getListaAreas();
     }
     
@@ -75,6 +73,7 @@ public class ControllerSistema {
     public String[] getPuestosDisponibles() {
         return this.controllerArea.getListaPuestosDisponibles(this.getLogueado());
     }
+ 
     
     public void setPuestoTrabajador(int PuestoID) {
         this.controllerUsuario.setPuestoTrabajador(this.getLogueado(), PuestoID);
@@ -90,5 +89,9 @@ public class ControllerSistema {
     
     public String getAreaPorSector(String NombreSector) {
         return this.controllerArea.getAreaPorSector(NombreSector);
+    }
+    
+    public String[] getSectoresPorArea(String NombreArea) {
+        return this.controllerArea.getSectoresPorArea(NombreArea);
     }
 }

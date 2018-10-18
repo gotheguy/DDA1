@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  *
  * @author gonzalo
  */
-public class ViewLogin extends javax.swing.JFrame {
+public final class ViewLogin extends javax.swing.JFrame {
 
     /**
      * Creates new form ViewLogin
@@ -49,7 +49,7 @@ public class ViewLogin extends javax.swing.JFrame {
 
         lblPassword.setText("Password");
 
-        txtUsuario.setText("46632345");
+        txtUsuario.setText("44249992");
 
         btnLogin.setText("Ingresar");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -58,7 +58,7 @@ public class ViewLogin extends javax.swing.JFrame {
             }
         });
 
-        txtPassword.setText("asd83h83j");
+        txtPassword.setText("u3ou34ouh");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -105,15 +105,16 @@ public class ViewLogin extends javax.swing.JFrame {
         
         Usuario usuario = ControllerSistema.getInstancia().login(nombre, password);
         if (usuario != null) {
-            if(usuario.getRol() == usuario.getRol().Trabajador) {
+            if(usuario.getRol() == Rol.Trabajador) {
                 ControllerSistema.getInstancia().setLogueado(usuario);
                 new ViewIngreso().setVisible(true);
                 dispose();
             }
-            else if(usuario.getRol() == usuario.getRol().Cliente) {
-                JOptionPane.showMessageDialog(this, "Eh gato sali de acá, vos sos cliente");
+            else if(usuario.getRol() == Rol.Cliente) {
+                ControllerSistema.getInstancia().setLogueado(usuario);
+                new ViewSolicitudSeleccionarArea().setVisible(true);
+                dispose();
             }
-
         } else {
             JOptionPane.showMessageDialog(this, "Usuario y/o password incorrectos.");
         }
@@ -169,9 +170,9 @@ public class ViewLogin extends javax.swing.JFrame {
         Sector sector = new Sector();
         Puesto puesto = new Puesto();
         Rol cliente = null;
-        cliente = cliente.Cliente;
+        cliente = Rol.Cliente;
         Rol trabajador = null;
-        trabajador = trabajador.Trabajador;
+        trabajador = Rol.Trabajador;
         
         Puesto p1 = new Puesto(0);
         Puesto p2 = new Puesto(0);
@@ -193,16 +194,16 @@ public class ViewLogin extends javax.swing.JFrame {
         Usuario u8 = new Trabajador("43434222","g56ydfh55","Clauido Launas",trabajador,puesto,sector);
         Usuario u9 = new Trabajador("59389888","gdfhdh5h5","Alfredo Cortez",trabajador,p9,sector);
         
-        Usuario u10 = new Cliente("44249992","u3ou34ouh","Oscar Beisso",cliente,"oscar.beisso@gmail.com",puesto);
-        Usuario u11 = new Cliente("52532932","u29298nf8","Martin Ramirez",cliente,"martin.ramirez@gmail.com",puesto);
-        Usuario u12 = new Cliente("43194928","j293fn93n","Pedro Velez",cliente,"pedro.velez@gmail.com",puesto);
-        Usuario u13 = new Cliente("59289235","329f2m392","Omar Gutierrez",cliente,"omar.gutierrez@hotmail.com",puesto);
-        Usuario u14 = new Cliente("59828583","sdf9sd938","Sebastian Romero",cliente,"sebastian.romero@gmail.com",puesto);
-        Usuario u15 = new Cliente("45329811","asdj939n2","Esteban Barcos",cliente,"esteban.barcos@gmail.com",puesto);
-        Usuario u16 = new Cliente("41938238","2m3f92m9f","Patricio Perez",cliente,"patricio.perez@hotmail.com",puesto);
-        Usuario u17 = new Cliente("32592838","m29f3mfnf","Marcelo Goya",cliente,"marcelo.goya@hotmail.com",puesto);
-        Usuario u18 = new Cliente("43598283","mg59h54nn","Victor Magallan",cliente,"victor.magallan@gmail.com",puesto);
-        Usuario u19 = new Cliente("53292999","a90asd093","Marco Brito",cliente,"marco.brito@hotmail.com",puesto);
+        Usuario u10 = new Cliente("44249992","u3ou34ouh","Oscar Beisso",cliente,"oscar.beisso@gmail.com");
+        Usuario u11 = new Cliente("52532932","u29298nf8","Martin Ramirez",cliente,"martin.ramirez@gmail.com");
+        Usuario u12 = new Cliente("43194928","j293fn93n","Pedro Velez",cliente,"pedro.velez@gmail.com");
+        Usuario u13 = new Cliente("59289235","329f2m392","Omar Gutierrez",cliente,"omar.gutierrez@hotmail.com");
+        Usuario u14 = new Cliente("59828583","sdf9sd938","Sebastian Romero",cliente,"sebastian.romero@gmail.com");
+        Usuario u15 = new Cliente("45329811","asdj939n2","Esteban Barcos",cliente,"esteban.barcos@gmail.com");
+        Usuario u16 = new Cliente("41938238","2m3f92m9f","Patricio Perez",cliente,"patricio.perez@hotmail.com");
+        Usuario u17 = new Cliente("32592838","m29f3mfnf","Marcelo Goya",cliente,"marcelo.goya@hotmail.com");
+        Usuario u18 = new Cliente("43598283","mg59h54nn","Victor Magallan",cliente,"victor.magallan@gmail.com");
+        Usuario u19 = new Cliente("53292999","a90asd093","Marco Brito",cliente,"marco.brito@hotmail.com");
         
         p1.setTrabajador(u1);
         p6.setTrabajador(u6);

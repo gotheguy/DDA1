@@ -193,12 +193,15 @@ public class ViewAtender extends javax.swing.JFrame {
     public void cargarInfo() {
         ArrayList<String> data = ControllerSistema.getInstancia().getInfoTrabajador();
         
-        for (String s : data) {
+            for (String s : data) {
             if(s != null) {
                 txtNombre.setText(data.get(0));
                 txtArea.setText(ControllerSistema.getInstancia().getAreaPorSector(data.get(1)));
                 txtSector.setText(data.get(1));
                 txtPuesto.setText(data.get(2));
+                txtAsignados.setText(data.get(3));
+                txtDerivados.setText(data.get(4));
+                txtTiempo.setText(data.get(5));
             }
         }
     }
