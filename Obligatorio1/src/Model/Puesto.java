@@ -5,8 +5,6 @@
  */
 package Model;
 
-import java.util.Date;
-
 /**
  *
  * @author gonzalo
@@ -14,10 +12,8 @@ import java.util.Date;
 public class Puesto {
     private static int NumeroPuesto = 1;
     private int NumeroPuestoID;
-    private int NumeroAtencion = 0;
-    private int CantNumerosAsignados = 0;
-    private int CantNumerosDerivados = 0;
-    private Date TiempoPromedio;
+    private NumeroAtencion NumeroAtencion;
+    private int NumerosAsignados;
     private Usuario Trabajador;
     
     public int getNumeroPuesto() {
@@ -28,34 +24,22 @@ public class Puesto {
         this.NumeroPuestoID = NumeroPuestoID;
     }
     
-    public int getNumeroAtencion() {
+    public NumeroAtencion getNumeroAtencion() {
         return NumeroAtencion;
     }
     
-    public void setNumeroAtencion(int NumeroAtencion) {
+    public void setNumeroAtencion(NumeroAtencion NumeroAtencion) {
         this.NumeroAtencion = NumeroAtencion;
     }
     
-    public int getCantNumerosAsignados() {
-        return CantNumerosAsignados;
+   public int getNumerosAsignados() {
+        return NumerosAsignados;
     }
     
-    public void setCantNumerosAsignados() {
-        this.CantNumerosAsignados++;
+    public void setNumerosAsignados() {
+        this.NumerosAsignados++;
     }
-    
-    public int getCantNumerosDerivados() {
-        return CantNumerosDerivados;
-    }
-    
-    public void setCantNumerosDerivados() {
-        this.CantNumerosDerivados++;
-    }
-    
-    public int getTiempoPromedio() {
-        return CantNumerosDerivados;
-    }
-    
+
     public Usuario getTrabajador() {
         return Trabajador;
     }
@@ -64,9 +48,7 @@ public class Puesto {
         this.Trabajador = Trabajador;
     }
     
-    public Puesto() { }
-    
-    public Puesto(int NumeroAtencion) {
+    public Puesto() {
         this.NumeroPuestoID = NumeroPuesto++;
     }
     

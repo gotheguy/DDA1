@@ -11,14 +11,18 @@ import Controller.ControllerSistema;
  *
  * @author gonzalo
  */
-public final class ViewSolicitudSeleccionarArea extends javax.swing.JFrame {
+public class ViewDerivarSeleccionarSector extends javax.swing.JFrame {
 
     /**
-     * Creates new form ViewSolicitudNumero
+     * Creates new form ViewDerivarSeleccionarSector
      */
-    public ViewSolicitudSeleccionarArea() {
+    
+    private final String seleccionado;
+    
+    public ViewDerivarSeleccionarSector(String seleccionado) {
+        this.seleccionado = seleccionado;
         initComponents();
-        cargarAreas();
+        cargarSectores();
     }
 
     /**
@@ -30,15 +34,22 @@ public final class ViewSolicitudSeleccionarArea extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lstAreas = new java.awt.List();
-        lblArea = new javax.swing.JLabel();
+        btnVolver = new javax.swing.JButton();
+        lstSectores = new java.awt.List();
+        lblSector = new javax.swing.JLabel();
         btnSeleccionar = new javax.swing.JButton();
         lblTitulo = new javax.swing.JLabel();
-        btnSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblArea.setText("Areas: ");
+        btnVolver.setText("Volver");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
+
+        lblSector.setText("Sectores:");
 
         btnSeleccionar.setText("Seleccionar");
         btnSeleccionar.addActionListener(new java.awt.event.ActionListener() {
@@ -47,14 +58,7 @@ public final class ViewSolicitudSeleccionarArea extends javax.swing.JFrame {
             }
         });
 
-        lblTitulo.setText("Seleccionar un Area:");
-
-        btnSalir.setText("Salir");
-        btnSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalirActionPerformed(evt);
-            }
-        });
+        lblTitulo.setText("Seleccionar un Sector:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -62,15 +66,15 @@ public final class ViewSolicitudSeleccionarArea extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(122, 122, 122)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblTitulo)
-                    .addComponent(lstAreas, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnSalir)
+                        .addComponent(btnVolver)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnSeleccionar))
-                    .addComponent(lblArea))
-                .addContainerGap(132, Short.MAX_VALUE))
+                    .addComponent(lblSector)
+                    .addComponent(lstSectores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(122, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -78,13 +82,13 @@ public final class ViewSolicitudSeleccionarArea extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(lblTitulo)
                 .addGap(18, 18, 18)
-                .addComponent(lblArea)
+                .addComponent(lblSector)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lstAreas, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lstSectores, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSeleccionar)
-                    .addComponent(btnSalir))
+                    .addComponent(btnVolver))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
@@ -92,33 +96,31 @@ public final class ViewSolicitudSeleccionarArea extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
-        String areaSeleccionada = lstAreas.getSelectedItem();
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         dispose();
-        new ViewSolicitudNumero(areaSeleccionada).setVisible(true);
+        new ViewDerivarSeleccionarArea().setVisible(true);
+    }//GEN-LAST:event_btnVolverActionPerformed
+
+    private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
+        dispose();
+        new ViewDerivarSeleccionarArea().setVisible(true);
     }//GEN-LAST:event_btnSeleccionarActionPerformed
 
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        dispose();
-        new ViewLogin().setVisible(true);
-    }//GEN-LAST:event_btnSalirActionPerformed
-    
-    public void cargarAreas() {
-        String[] areas = ControllerSistema.getInstancia().getListaAreas();
+    public void cargarSectores() {
+        String[] sectores = ControllerSistema.getInstancia().getSectoresPorArea(this.seleccionado);
 
-        for(String s : areas) {
+        for(String s : sectores) {
             if(s != null) {
-                lstAreas.add(s);
+                lstSectores.add(s);
             }
         }
-        lstAreas.select(0);
+        lstSectores.select(0);
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnSeleccionar;
-    private javax.swing.JLabel lblArea;
+    private javax.swing.JButton btnVolver;
+    private javax.swing.JLabel lblSector;
     private javax.swing.JLabel lblTitulo;
-    private java.awt.List lstAreas;
+    private java.awt.List lstSectores;
     // End of variables declaration//GEN-END:variables
 }

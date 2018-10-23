@@ -23,6 +23,8 @@ public interface IControllerUsuario {
     
     public void agregarListaUsuarios(Usuario u);
     
+    public Usuario getUsuarioPorCedula(String CedulaCliente);
+    
     public void setPuestoTrabajador(Usuario Usuario, int PuestoID);
     
     public int getPuestoTrabajador(Usuario Usuario);

@@ -12,19 +12,29 @@ import java.util.Date;
  * @author gonzalo
  */
 public class NumeroAtencion {
-    private int Numero;
+    private static int Numero = 1;
+    private int NumeroID;
     private Usuario Cliente;
     private Date Fecha;
     private Sector Sector;
+    private String Estado;
     
-   public int getNumero() {
-        return Numero;
+   public static int getNumero() {
+       return Numero;
+   }
+   
+   public static void setNumero() {
+       NumeroAtencion.Numero = 1;
+   }
+    
+   public int getNumeroID() {
+        return NumeroID;
     }
     
-    public void setNumero() {
-        this.Numero++;
+    public void setNumeroID(int NumeroID) {
+        this.NumeroID = NumeroID;
     }
-    
+
     public Usuario getCliente() {
         return Cliente;
     }
@@ -49,10 +59,19 @@ public class NumeroAtencion {
         this.Sector = Sector;
     }
     
-    public NumeroAtencion(int Numero, Usuario Cliente, Date Fecha, Sector Sector) {
-        this.Numero = Numero;
+    public String getEstado() {
+        return Estado;
+    }
+    
+    public void setEstado(String Estado) {
+        this.Estado = Estado;
+    }
+    
+    public NumeroAtencion(Usuario Cliente, Date Fecha, Sector Sector, String Estado) {
+        this.NumeroID = Numero++;
         this.Cliente = Cliente;
         this.Fecha = Fecha;
         this.Sector = Sector;
+        this.Estado = Estado;
     }
 }

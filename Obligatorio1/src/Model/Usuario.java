@@ -17,6 +17,7 @@ public abstract class Usuario {
     protected String Email;
     protected Puesto Puesto;
     protected Sector Sector;
+    protected String Estado;
     
     public String getCedula() {
         return Cedula;
@@ -72,6 +73,14 @@ public abstract class Usuario {
 
     public void setSector(Sector Sector) {
         this.Sector = Sector;
+    }
+    
+    public String getEstado() {
+        return Estado;
+    }
+
+    public void setEstado(String Estado) {
+        this.Estado = Estado;
     }
     
     public Usuario(String Cedula, String Password, String NombreCompleto, Rol Rol) {

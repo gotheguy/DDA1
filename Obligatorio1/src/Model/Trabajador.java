@@ -11,10 +11,11 @@ package Model;
  */
 public final class Trabajador extends Usuario {
     
-    public Trabajador(String Cedula, String Password, String NombreCompleto, Rol Rol, Puesto Puesto, Sector Sector) { 
+    public Trabajador(String Cedula, String Password, String NombreCompleto, Rol Rol, Puesto Puesto, Sector Sector, String Estado) { 
         super(Cedula, Password, NombreCompleto, Rol.Trabajador);
         
         this.Puesto = Puesto;
         this.Sector = Sector;
+        this.Estado = Estado;
     }
 }

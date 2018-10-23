@@ -6,17 +6,18 @@
 package View;
 
 import Controller.ControllerSistema;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author gonzalo
  */
-public final class ViewSolicitudSeleccionarArea extends javax.swing.JFrame {
+public final class ViewMonitorInicio extends javax.swing.JFrame {
 
     /**
-     * Creates new form ViewSolicitudNumero
+     * Creates new form ViewMonitor
      */
-    public ViewSolicitudSeleccionarArea() {
+    public ViewMonitorInicio() {
         initComponents();
         cargarAreas();
     }
@@ -30,13 +31,18 @@ public final class ViewSolicitudSeleccionarArea extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblTitulo = new javax.swing.JLabel();
         lstAreas = new java.awt.List();
         lblArea = new javax.swing.JLabel();
         btnSeleccionar = new javax.swing.JButton();
-        lblTitulo = new javax.swing.JLabel();
-        btnSalir = new javax.swing.JButton();
+        lblNumeros = new javax.swing.JLabel();
+        txtNumeros = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setLocation(new java.awt.Point(1300, 200));
+
+        lblTitulo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblTitulo.setText("Monitoreo");
 
         lblArea.setText("Areas: ");
 
@@ -47,14 +53,7 @@ public final class ViewSolicitudSeleccionarArea extends javax.swing.JFrame {
             }
         });
 
-        lblTitulo.setText("Seleccionar un Area:");
-
-        btnSalir.setText("Salir");
-        btnSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalirActionPerformed(evt);
-            }
-        });
+        lblNumeros.setText("Últimos números:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -63,13 +62,14 @@ public final class ViewSolicitudSeleccionarArea extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(122, 122, 122)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTitulo)
+                    .addComponent(lblNumeros)
+                    .addComponent(btnSeleccionar, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lstAreas, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblArea)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnSalir)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnSeleccionar))
-                    .addComponent(lblArea))
+                        .addGap(45, 45, 45)
+                        .addComponent(lblTitulo))
+                    .addComponent(txtNumeros, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(132, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -81,28 +81,32 @@ public final class ViewSolicitudSeleccionarArea extends javax.swing.JFrame {
                 .addComponent(lblArea)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lstAreas, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSeleccionar)
-                    .addComponent(btnSalir))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblNumeros)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNumeros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addComponent(btnSeleccionar)
+                .addGap(20, 20, 20))
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
         String areaSeleccionada = lstAreas.getSelectedItem();
-        dispose();
-        new ViewSolicitudNumero(areaSeleccionada).setVisible(true);
+        String numeros = txtNumeros.getText();
+        int num = Integer.parseInt(numeros);	
+        
+        if(num > 0) {
+            dispose();
+            new ViewSolicitudNumero(areaSeleccionada).setVisible(true);
+        }
+        else {
+            JOptionPane.showMessageDialog(this, "El número debe ser mayor a 0");
+        }
     }//GEN-LAST:event_btnSeleccionarActionPerformed
 
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        dispose();
-        new ViewLogin().setVisible(true);
-    }//GEN-LAST:event_btnSalirActionPerformed
-    
     public void cargarAreas() {
         String[] areas = ControllerSistema.getInstancia().getListaAreas();
 
@@ -113,12 +117,13 @@ public final class ViewSolicitudSeleccionarArea extends javax.swing.JFrame {
         }
         lstAreas.select(0);
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnSeleccionar;
     private javax.swing.JLabel lblArea;
+    private javax.swing.JLabel lblNumeros;
     private javax.swing.JLabel lblTitulo;
     private java.awt.List lstAreas;
+    private javax.swing.JTextField txtNumeros;
     // End of variables declaration//GEN-END:variables
 }

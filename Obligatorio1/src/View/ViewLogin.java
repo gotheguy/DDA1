@@ -21,7 +21,6 @@ public final class ViewLogin extends javax.swing.JFrame {
      */
     public ViewLogin() {
         initComponents();
-        cargarDatos();
     }
 
     /**
@@ -49,7 +48,7 @@ public final class ViewLogin extends javax.swing.JFrame {
 
         lblPassword.setText("Password");
 
-        txtUsuario.setText("44249992");
+        txtUsuario.setText("45329811");
 
         btnLogin.setText("Ingresar");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -58,7 +57,7 @@ public final class ViewLogin extends javax.swing.JFrame {
             }
         });
 
-        txtPassword.setText("u3ou34ouh");
+        txtPassword.setText("asdj939n2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -108,11 +107,13 @@ public final class ViewLogin extends javax.swing.JFrame {
             if(usuario.getRol() == Rol.Trabajador) {
                 ControllerSistema.getInstancia().setLogueado(usuario);
                 new ViewIngreso().setVisible(true);
+                new ViewMonitorInicio().setVisible(true);
                 dispose();
             }
             else if(usuario.getRol() == Rol.Cliente) {
                 ControllerSistema.getInstancia().setLogueado(usuario);
                 new ViewSolicitudSeleccionarArea().setVisible(true);
+                new ViewMonitorInicio().setVisible(true);
                 dispose();
             }
         } else {
@@ -151,143 +152,9 @@ public final class ViewLogin extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new ViewLogin().setVisible(true);
+                ControllerSistema.getInstancia().cargarDatos();
             }
         });
-    }
-    
-    public void cargarDatos() {
-        
-        ControllerSistema controlador = Controller.ControllerSistema.getInstancia();
-        
-        ArrayList<Sector> sectores1 = new ArrayList();
-        ArrayList<Sector> sectores2 = new ArrayList();
-        ArrayList<Usuario> usuarios1 = new ArrayList();
-        ArrayList<Usuario> usuarios2 = new ArrayList();
-        ArrayList<Usuario> usuarios3 = new ArrayList();
-        ArrayList<Puesto> puestos1 = new ArrayList();
-        ArrayList<Puesto> puestos2 = new ArrayList();
-        ArrayList<Puesto> puestos3 = new ArrayList();
-        Sector sector = new Sector();
-        Puesto puesto = new Puesto();
-        Rol cliente = null;
-        cliente = Rol.Cliente;
-        Rol trabajador = null;
-        trabajador = Rol.Trabajador;
-        
-        Puesto p1 = new Puesto(0);
-        Puesto p2 = new Puesto(0);
-        Puesto p3 = new Puesto(0);
-        Puesto p4 = new Puesto(0);
-        Puesto p5 = new Puesto(0);
-        Puesto p6 = new Puesto(0);
-        Puesto p7 = new Puesto(0);
-        Puesto p8 = new Puesto(0);
-        Puesto p9 = new Puesto(0);
-        
-        Usuario u1 = new Trabajador("46632345","asd83h83j","Alberto Gomez",trabajador,puesto,sector);
-        Usuario u2 = new Trabajador("53267547","d43g4333e","Juan Castillo",trabajador,puesto,sector);
-        Usuario u3 = new Trabajador("46373755","h4h5h56da","Francisco Bouza",trabajador,puesto,sector);
-        Usuario u4 = new Trabajador("82568358","46j556j56","Rodrigo Miranda",trabajador,puesto,sector);
-        Usuario u5 = new Trabajador("62863833","65j34h3g4","Gonzalo Beri",trabajador,puesto,sector);
-        Usuario u6 = new Trabajador("66442642","ads32f345","Martin Cazorla",trabajador,p6,sector);
-        Usuario u7 = new Trabajador("34263463","35y3ggg3g","Javier Ortega",trabajador,p7,sector);
-        Usuario u8 = new Trabajador("43434222","g56ydfh55","Clauido Launas",trabajador,puesto,sector);
-        Usuario u9 = new Trabajador("59389888","gdfhdh5h5","Alfredo Cortez",trabajador,p9,sector);
-        
-        Usuario u10 = new Cliente("44249992","u3ou34ouh","Oscar Beisso",cliente,"oscar.beisso@gmail.com");
-        Usuario u11 = new Cliente("52532932","u29298nf8","Martin Ramirez",cliente,"martin.ramirez@gmail.com");
-        Usuario u12 = new Cliente("43194928","j293fn93n","Pedro Velez",cliente,"pedro.velez@gmail.com");
-        Usuario u13 = new Cliente("59289235","329f2m392","Omar Gutierrez",cliente,"omar.gutierrez@hotmail.com");
-        Usuario u14 = new Cliente("59828583","sdf9sd938","Sebastian Romero",cliente,"sebastian.romero@gmail.com");
-        Usuario u15 = new Cliente("45329811","asdj939n2","Esteban Barcos",cliente,"esteban.barcos@gmail.com");
-        Usuario u16 = new Cliente("41938238","2m3f92m9f","Patricio Perez",cliente,"patricio.perez@hotmail.com");
-        Usuario u17 = new Cliente("32592838","m29f3mfnf","Marcelo Goya",cliente,"marcelo.goya@hotmail.com");
-        Usuario u18 = new Cliente("43598283","mg59h54nn","Victor Magallan",cliente,"victor.magallan@gmail.com");
-        Usuario u19 = new Cliente("53292999","a90asd093","Marco Brito",cliente,"marco.brito@hotmail.com");
-        
-        p1.setTrabajador(u1);
-        p6.setTrabajador(u6);
-        p7.setTrabajador(u7);
-        p9.setTrabajador(u9);
-        
-        Area a1 = new Area("AT",sectores1);
-        Area a2 = new Area("CT",sectores2);
-        
-        usuarios1.add(u1);
-        usuarios1.add(u2);
-        usuarios1.add(u3);
-        puestos1.add(p1);
-        puestos1.add(p2);
-        puestos1.add(p3);
-        
-        Sector s1 = new Sector("G34", 3, usuarios1, puestos1);
-        sectores1.add(s1);
-        u1.setSector(s1);
-        u2.setSector(s1);
-        u3.setSector(s1);     
-        
-        usuarios2.add(u4);
-        usuarios2.add(u5);
-        usuarios2.add(u6);
-        puestos2.add(p4);
-        puestos2.add(p5);
-        puestos2.add(p6);
-        
-        Sector s2 = new Sector("H35", 3, usuarios2, puestos2);
-        sectores1.add(s2);
-        a1.setSectores(sectores1);
-        u4.setSector(s2);
-        u5.setSector(s2);
-        u6.setSector(s2);
-        controlador.agregarListaAreas(a1);
-        controlador.agregarListaSectores(s1);
-        controlador.agregarListaSectores(s2);
-        
-        usuarios3.add(u7);
-        usuarios3.add(u8);
-        usuarios3.add(u9);
-        puestos3.add(p7);
-        puestos3.add(p8);
-        puestos3.add(p9);
-        
-        Sector s3 = new Sector("J36", 3, usuarios3, puestos3);
-        sectores2.add(s3);
-        a2.setSectores(sectores2);
-        u7.setSector(s3);
-        u8.setSector(s3);
-        u9.setSector(s3);
-        controlador.agregarListaAreas(a2);
-        controlador.agregarListaSectores(s3);
-        
-        controlador.agregarListaPuestos(p1);
-        controlador.agregarListaPuestos(p2);
-        controlador.agregarListaPuestos(p3);
-        controlador.agregarListaPuestos(p4);
-        controlador.agregarListaPuestos(p5);
-        controlador.agregarListaPuestos(p6);
-        controlador.agregarListaPuestos(p7);
-        controlador.agregarListaPuestos(p8);
-        controlador.agregarListaPuestos(p9);
-        
-        controlador.agregarListaUsuarios(u1);
-        controlador.agregarListaUsuarios(u2);
-        controlador.agregarListaUsuarios(u3);
-        controlador.agregarListaUsuarios(u4);
-        controlador.agregarListaUsuarios(u5);
-        controlador.agregarListaUsuarios(u6);
-        controlador.agregarListaUsuarios(u7);
-        controlador.agregarListaUsuarios(u8);
-        controlador.agregarListaUsuarios(u9);
-        controlador.agregarListaUsuarios(u10);
-        controlador.agregarListaUsuarios(u11);
-        controlador.agregarListaUsuarios(u12);
-        controlador.agregarListaUsuarios(u13);
-        controlador.agregarListaUsuarios(u14);
-        controlador.agregarListaUsuarios(u15);
-        controlador.agregarListaUsuarios(u16);
-        controlador.agregarListaUsuarios(u17);
-        controlador.agregarListaUsuarios(u18);
-        controlador.agregarListaUsuarios(u19);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -51,6 +51,16 @@ public class ControllerUsuario implements IControllerUsuario {
     }
     
     @Override
+    public Usuario getUsuarioPorCedula(String CedulaCliente) {
+        for (Usuario u : listaUsuarios) {
+            if (u.getCedula().equalsIgnoreCase(CedulaCliente)) {
+                return u;
+            }
+        }
+        return null;
+    }
+    
+    @Override
     public void setPuestoTrabajador(Usuario Usuario, int PuestoID) {
         for (Usuario u : listaUsuarios) {
             if (u.getCedula().equalsIgnoreCase(Usuario.getCedula()) && u.getPassword().equalsIgnoreCase(Usuario.getPassword())) {
@@ -79,11 +89,37 @@ public class ControllerUsuario implements IControllerUsuario {
                 array.add(u.getNombreCompleto());
                 array.add(u.getSector().getNombre());
                 array.add(String.valueOf(u.getPuesto().getNumeroPuesto()));
-                array.add(String.valueOf(u.getPuesto().getCantNumerosAsignados()));
-                array.add(String.valueOf(u.getPuesto().getCantNumerosDerivados()));
-                array.add(String.valueOf(u.getPuesto().getTiempoPromedio()));
+                array.add(String.valueOf(u.getPuesto().getNumerosAsignados()));
             }
         }
         return array;
+    }
+    
+    public Sector getSectorTrabajador(Usuario Usuario) {
+        Sector Sector = null;
+        for (Usuario u : listaUsuarios) {
+            if (u.getCedula().equalsIgnoreCase(Usuario.getCedula()) && u.getPassword().equalsIgnoreCase(Usuario.getPassword())) {
+                Sector = u.getSector();
+            }
+        }
+        return Sector;
+    }
+    
+    public boolean comprobarCedulaCliente(String Cedula) {
+        boolean encontre = false;
+        for (Usuario u : listaUsuarios) {
+            if (u.getCedula().equalsIgnoreCase(Cedula)) {
+                encontre = true;
+            }
+        }
+        return encontre;
+    }
+    
+    public void setEstadoTrabajador(Usuario Usuario, String Estado) {
+        for (Usuario u : listaUsuarios) {
+            if (u.getCedula().equalsIgnoreCase(Usuario.getCedula()) && u.getPassword().equalsIgnoreCase(Usuario.getPassword())) {
+                u.setEstado(Estado);
+            }
+        }
     }
 }

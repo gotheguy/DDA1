@@ -11,12 +11,12 @@ import Controller.ControllerSistema;
  *
  * @author gonzalo
  */
-public final class ViewSolicitudSeleccionarArea extends javax.swing.JFrame {
+public class ViewDerivarSeleccionarArea extends javax.swing.JFrame {
 
     /**
-     * Creates new form ViewSolicitudNumero
+     * Creates new form ViewDerivarSeleccionarArea
      */
-    public ViewSolicitudSeleccionarArea() {
+    public ViewDerivarSeleccionarArea() {
         initComponents();
         cargarAreas();
     }
@@ -34,7 +34,7 @@ public final class ViewSolicitudSeleccionarArea extends javax.swing.JFrame {
         lblArea = new javax.swing.JLabel();
         btnSeleccionar = new javax.swing.JButton();
         lblTitulo = new javax.swing.JLabel();
-        btnSalir = new javax.swing.JButton();
+        btnVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,10 +49,10 @@ public final class ViewSolicitudSeleccionarArea extends javax.swing.JFrame {
 
         lblTitulo.setText("Seleccionar un Area:");
 
-        btnSalir.setText("Salir");
-        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+        btnVolver.setText("Volver");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalirActionPerformed(evt);
+                btnVolverActionPerformed(evt);
             }
         });
 
@@ -62,15 +62,15 @@ public final class ViewSolicitudSeleccionarArea extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(122, 122, 122)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblTitulo)
-                    .addComponent(lstAreas, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnSalir)
+                        .addComponent(btnVolver)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnSeleccionar))
-                    .addComponent(lblArea))
-                .addContainerGap(132, Short.MAX_VALUE))
+                    .addComponent(lblArea)
+                    .addComponent(lstAreas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(122, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,7 +84,7 @@ public final class ViewSolicitudSeleccionarArea extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSeleccionar)
-                    .addComponent(btnSalir))
+                    .addComponent(btnVolver))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
@@ -95,14 +95,14 @@ public final class ViewSolicitudSeleccionarArea extends javax.swing.JFrame {
     private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
         String areaSeleccionada = lstAreas.getSelectedItem();
         dispose();
-        new ViewSolicitudNumero(areaSeleccionada).setVisible(true);
+        new ViewDerivarSeleccionarSector(areaSeleccionada).setVisible(true);
     }//GEN-LAST:event_btnSeleccionarActionPerformed
 
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         dispose();
-        new ViewLogin().setVisible(true);
-    }//GEN-LAST:event_btnSalirActionPerformed
-    
+        new ViewAtender().setVisible(true);
+    }//GEN-LAST:event_btnVolverActionPerformed
+
     public void cargarAreas() {
         String[] areas = ControllerSistema.getInstancia().getListaAreas();
 
@@ -113,10 +113,10 @@ public final class ViewSolicitudSeleccionarArea extends javax.swing.JFrame {
         }
         lstAreas.select(0);
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnSeleccionar;
+    private javax.swing.JButton btnVolver;
     private javax.swing.JLabel lblArea;
     private javax.swing.JLabel lblTitulo;
     private java.awt.List lstAreas;

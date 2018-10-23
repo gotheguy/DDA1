@@ -12,12 +12,10 @@ import java.util.ArrayList;
  *
  * @author gonzalo
  */
-public interface IControllerArea {
-    public String[] getListaAreas();
+public interface IControllerPuesto {
+    public ArrayList<Puesto> getListaPuestos();
     
-    public void agregarListaAreas(Area Area);
+    public void agregarListaPuestos(Puesto Puesto);
     
-    public String getAreaPorSector(String NombreSector);
-    
-    public String[] getSectoresPorArea(String NombreArea);
+    public String[] getListaPuestosDisponibles(Usuario u);
 }
